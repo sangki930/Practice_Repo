@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<!-- <script>
+$(document).ready(function() {
+        $("#content div").hide(); // Initially hide all content
+        $("#tabs li:first").attr("id","current"); // Activate first tab
+        $("#content div:first").fadeIn(); // Show first tab content
+ 
+    $('#tabs a').click(function(e) {
+        e.preventDefault();
+        $("#content div").hide(); //Hide all content
+        $("#tabs li").attr("id",""); //Reset id's
+        $(this).parent().attr("id","current"); // Activate this
+        $('#' + $(this).attr('title')).fadeIn(); // Show content for current tab
+    });
+});
+</script> -->
+<!-- <style>
+#tabs{
+  overflow: hidden;
+  width: 50%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+ 
+#tabs li{
+  float: left;
+  margin: 0 .5em 0 0;
+}
+ 
+#tabs a{
+  position: relative;
+  background: #ddd;
+  background-image: linear-gradient(to bottom, #fff, #ddd);
+  padding: .7em 3.5em;
+  float: left;
+  text-decoration: none;
+  color: #444;
+  text-shadow: 0 1px 0 rgba(255,255,255,.8);
+  border-radius: 5px 0 0 0;
+  box-shadow: 0 2px 2px rgba(0,0,0,.4);
+}
+ 
+#tabs a:hover,
+#tabs a:hover::after,
+#tabs a:focus,
+#tabs a:focus::after{
+  background: #fff;
+}
+ 
+#tabs a:focus{
+  outline: 0;
+}
+ 
+#tabs a::after{
+  content:'';
+  position:absolute;
+  z-index: 1;
+  top: 0;
+  right: -.5em;
+  bottom: 0;
+  width: 1em;
+  background: #ddd;
+  background-image: linear-gradient(to bottom, #fff, #ddd);
+  box-shadow: 2px 2px 2px rgba(0,0,0,.4);
+  transform: skew(10deg);
+  border-radius: 0 5px 0 0;
+}
+ 
+#tabs #current a,
+#tabs #current a::after{
+  background: #fff;
+  z-index: 3;
+}
+ 
+#content
+{
+    background: #fff;
+    padding: 2em;
+    width:50%;
+    height: 220px;
+    position: relative;
+    z-index: 2;
+    border-radius: 0 5px 5px 5px;
+    box-shadow: 0 -2px 3px -2px rgba(0, 0, 0, .5);
+}
+
+</style> -->
+
+</head>
+<script>
+function tableCreate(){
+	var tc = new Array();
+	var html = '';
+				
+	var name = $("#inName").val();
+	var job = $("#inJob").val();
+	var age = $("#inAge").val();
+	var hobby = $("#inHobby").val();
+				
+	html += '<tr>';
+	html += '<td>'+name+'</td>';
+	html += '<td>'+job+'</td>';
+	html += '<td>'+age+'</td>';
+	html += '<td>'+hobby+'</td>';
+	html += '</tr>';
+				
+	$("#dynamicTable").append(html);
+				
+	$("#inName").val('');
+	$("#inJob").val('');
+	$("#inAge").val('');
+	$("#inHobby").val('');
+	}
+$(document).ready(function(){
+	
+	$("#btntest").toggle("click",function(){
+		
+		alert("이벤트 1");
+	}).toggle("click",function(){
+		alert("이벤트 2");
+	});
+	
+});
+</script>
+<body class="body">
+<button id=btntest>
+버튼 이벤트 테스트
+</button>
+ <div>
+<table style="border: 1px;" id="dynamicTable">
+<thead>
+<tr>
+<th>이름</th>
+<th>직업</th>
+<th>나이</th>
+<th>취미</th>
+</tr>
+</thead>
+<tbody id="dynamicTbody">
+	
+</tbody>
+</table>
+</div>
+<div>
+<input type="text" placeholder="이름" id="inName">
+<input type="text" placeholder="직업" id="inJob"> 
+<input type="text" placeholder="나이" id="inAge">
+<input type="text" placeholder="취미" id="inHobby">
+<button onclick="tableCreate()">table_append</button>
+</div>
+
+<!-- <ul id="tabs">
+    <li><a href="#" title="tab1">One</a></li>
+    <li><a href="#" title="tab2">Two</a></li>
+    <li><a href="#" title="tab3">Three</a></li>
+    <li><a href="#" title="tab4">Four</a></li>
+</ul>
+<div id="content">
+    <div id="tab1">...</div>
+    <div id="tab2">...</div>
+    <div id="tab3">...</div>
+    <div id="tab4">...</div>
+</div> -->
+</body>
+</html>

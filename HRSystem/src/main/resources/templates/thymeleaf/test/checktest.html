@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script>
+/* window.onload = ()=>{ */
+$(document).ready(function(){
+	$("#chkall").click(function(){
+		if($("#chkall").is(":checked")){
+			$(".chk").prop("checked",true);
+		}
+		else{
+			$(".chk").prop("checked",false);
+		}
+	});
+	$(".chk").click(function(){
+		if($("input[name='chk']:checked").length==5){
+			$("#chkall").prop("checked",true);
+		}else{
+			$("#chkall").prop("checked",false);
+		}
+	});
+
+});
+
+/* } */
+</script>
+</head>
+<body>
+<input type="checkbox" class="chk" id="chkall" /> 전체선택
+<input type="checkbox" class="chk" name="chk" id="" /> 
+<input type="checkbox" class="chk" name="chk" id="" /> 
+<input type="checkbox" class="chk" name="chk" id="" /> 
+<input type="checkbox" class="chk" name="chk" id="" /> 
+<input type="checkbox" class="chk" name="chk" id="" /> 
+</body>
+</html>

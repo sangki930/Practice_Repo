@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ko">
+<!-- <html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"> -->
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href="/static/css/test.css" rel="stylesheet" type="text/css" />
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script>
+ $(document).ready(function() {
+	  $("#submitFrm").on("click", function() {
+	         
+	    if ( $(".chkclass :checked").size()<2 ) {
+	      alert("체크 개수가 2개 이하입니다.");
+	      return;
+	    }
+	    else {
+	      var param = "";
+	      $(".chkclass :checked").each(function() {
+	        if( param=="" )
+	          param = "name="+$(this).parent().children("#name").val();
+	        else param = param + "&name="+$(this).parent().children("#name").val();
+	 
+	        param = param + "&age="+$(this).parent().children("#age").val();
+	      });
+	           
+	      $.ajax({
+	        url : '/test/bbbb',
+	        type : 'post',
+	        data : param,
+	        dataType : 'text',
+	        success : function(data) {
+	          console.log('return string : ' + data);
+	        },
+	        error : function() { console.log('error');}
+	      });
+	    }
+	  });
+	});
+</script>
+</head>
+<body>
+<button id="submitFrm">전송</button><br/><br/>   
+<div class="chkclass">
+  <div>
+    <input type="checkbox" id="chk" name="chk1" value="chkVal1"/>chkVal1
+    <input type="hidden" id="name" name="park" value="chkTxtVal1"/>
+    <input type="hidden" id="age" value="23"/>
+  </div>
+  <div>
+    <input type="checkbox" id="chk" name="chk2" value="chkVal2"/>chkVal2
+    <input type="hidden" id="name" name="nm2" value="chkTxtVal2"/>
+    <input type="hidden" id="age" value="25"/>
+  </div>
+  <div>
+    <input type="checkbox" id="chk" name="chk3" value="chkVal3"/>chkVal3
+    <input type="hidden" id="name" name="nm" value="chkTxtVal3"/>
+    <input type="hidden" id="age" value="33"/>
+  </div>
+  <div>
+    <input type="checkbox" id="chk" name="chk4" value="chkVal4"/>chkVal4
+    <input type="hidden" id="name" name="nm" value="chkTxtVal4"/>
+    <input type="hidden" id="age" value="36"/>
+  </div>
+  <div>
+    <input type="checkbox" id="chk" name="chk5" value="chkVal5"/>chkVal5
+    <input type="hidden" id="name" name="nm" value="chkTxtVal5"/>
+    <input type="hidden" id="age" value="99"/>
+  </div>
+</div>
+	<!-- <div th:insert="/thymeleaf/test/header.html::header"></div> -->
+	<!-- insert는 속겅명과 값도 가져옴 -->
+<!-- 	<div th:insert="thymeleaf/test/header::header"></div>
+	<div th:replace="thymeleaf/test/aaaa::#spot"></div>
+	<br> TESTHOME
+	<br>
+	<div class="spot">HOME의 SPOT</div>
+	<div th:insert="thymeleaf/test/footer::footer"></div>
+	<br>
+	<form name="fm">
+		<input type="checkbox" id="check" name="check" value="1" />
+		<input type="checkbox" id="check" name="check" value="2" />
+		<input type="checkbox" id="check" name="check" value="3" />
+		<input type="submit" name="submit" value="제출" OnClick="ajaxtest()"/>
+	</form> -->
+</body>
+</html>

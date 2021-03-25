@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	
+</script>
+<style>
+table{
+	border: 1px solid #444444;
+    border-collapse: collapse;
+}
+#test {
+	width: 100%;
+	heigth: 100px;
+	background-color: skyblue;
+}
+
+#test2 {
+	width: 100%;
+	height: 100px;
+	background-color: red;
+}
+
+#listname {
+	width: 100%;
+	/* height: 10%; */
+	background-color: gray;
+}
+#area{
+	width: 100%;
+	height: 100%;
+	background-color:green;
+}
+/* #wrapper{
+	border: 1px solid #444444;
+    border-collapse: collapse;
+} */
+
+</style>
+</head>
+<body>
+	<table border=1 width="100%">
+		<tr>
+			<td bgcolor="aquablue" width="12.5%">Sitename</td>
+			<td width="12.5%"></td>
+			<td bgcolor="aquablue" width="12.5%">writer</td>
+			<td width="12.5%"></td>
+			<td bgcolor="aquablue" width="12.5%">Date</td>
+			<td width="12.5%"></td>
+			<td bgcolor="aquablue" width="12.5%">Version</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td width="12.5%" bgcolor="aquablue">Step ID</td>
+			<td width="12.5%"></td>
+			<td width="12.5%" bgcolor="aquablue">Scene</td>
+			<td width="12.5%"></td>
+			<td width="12.5%" bgcolor="aquablue">Part</td>
+			<td width="12.5%"></td>
+			<td width="12.5%" bgcolor="aquablue">Page</td>
+			<td width="12.5%"></td>
+		</tr>
+	</table>
+	<table border="1" width="100%">
+		<tr>
+			<td>
+				<div id="test">
+					<table border="1">
+						<tr>
+							<td>Menu</td>
+							<td>회원관리</td>
+							<td>인사</td>
+						</tr>
+					</table>
+				</div>
+				<div id="test2">
+					<div id="listname">
+						회원관리 조회
+					</div>
+					<table border="1" width="100%">
+						<tr>
+							<td>
+								<div th:insert="thymeleaf/test/aaaa::#numtable"></div>
+							</td>
+						</tr>
+					</table>
+				</div>
+			</td>
+		</tr>
+	</table>
+</body>
+</html>

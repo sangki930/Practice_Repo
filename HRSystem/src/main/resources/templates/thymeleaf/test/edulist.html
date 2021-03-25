@@ -1,0 +1,41 @@
+ <!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script>
+window.onload = ()=>$("#testbutton").click(function(){
+	
+	 $.ajax({
+	        url : '/test/edulist1',
+	        type : 'post',
+	        success : function(data){
+	            alert('리스트 보기 성공');
+	            var a='';
+	            $.each(data, function(key, edu){
+						a+=`<tr><td>${edu.id}</td><td>${edu.addr}</td></tr>`;
+	            });
+	            
+	           $("#testtable").html(a);
+
+	        },
+	        fail : function(){
+	        	alert('불러오기 실패');
+	        }
+	    });
+	
+});
+</script>
+</head>
+<body>
+<button id="testbutton" name="testbutton">
+테스트 버튼
+</button>
+<table id="testtable" border=1>
+	<tr>
+	<td>323232</td>
+	</tr>
+</table>
+</body>
+</html>
