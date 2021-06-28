@@ -71,10 +71,7 @@ public class Main {
                     }
                 }
                 //최소값 구함
-                if(min > Math.abs(start_sum- link_sum)){
-                    min = Math.abs(start_sum- link_sum);
-                }
-            
+                min = Math.min(Math.abs(start_sum- link_sum),min);
             
  
         }
