@@ -41,7 +41,7 @@ public class Main {
 				}
 			}
 
-			// 여기까지가 경우의 수 구하기
+			// 여기까지가 경우 구하기
 
 			// 팀의 인원이 정확히 2로 나누어졌을 때 만 다음과정을 실행 할 수 있다.
 			if (count != n / 2)
@@ -70,7 +70,7 @@ public class Main {
 					link_sum += arr[link[x]][link[y]];
 				}
 			}
-			// 최소값 구함
+			// 최솟값 구함
 			min = Math.min(Math.abs(start_sum - link_sum), min);
 
 		}
