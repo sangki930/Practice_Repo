@@ -44,7 +44,9 @@ public class Main {
             //여기까지가 경우의 수 구하기
             
             //팀의 인원이 정확히 2로 나누어졌을 때 만 다음과정을 실행 할 수 있다.
-            if (count == n / 2) {
+            if (count != n / 2)
+            	continue;
+            
                 int start_sum = 0;
                 int link_sum = 0;
                 int start_cnt = 0;
@@ -73,7 +75,7 @@ public class Main {
                     min = Math.abs(start_sum- link_sum);
                 }
             
-            }
+            
  
         }
  
