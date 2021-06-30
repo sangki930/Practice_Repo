@@ -55,10 +55,10 @@ public class Main {
  
 				switch (i) {
  
-				case 0:	dfs(num + number[idx], idx + 1);	break;
-				case 1:	dfs(num - number[idx], idx + 1);	break;
-				case 2:	dfs(num * number[idx], idx + 1);	break;
-				case 3:	dfs(num / number[idx], idx + 1);	break;
+				case 0->dfs(num + number[idx], idx + 1);
+				case 1->dfs(num - number[idx], idx + 1);
+				case 2->dfs(num * number[idx], idx + 1);
+				case 3->dfs(num / number[idx], idx + 1);
  
 				}
 				// 재귀호출이 종료되면 다시 해당 연산자 개수를 복구한다.
